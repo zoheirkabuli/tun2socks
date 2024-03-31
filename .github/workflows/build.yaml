@@ -55,6 +55,7 @@ jobs:
 
       - name: Upload to GitHub Release
         uses: svenstaro/upload-release-action@v2
+        if: github.event_name == 'release'
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./tun2socks.aar
