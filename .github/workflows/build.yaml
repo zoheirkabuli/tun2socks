@@ -43,6 +43,14 @@ jobs:
           go mod tidy
           gomobile bind -ldflags="-w -s" -target=android -androidapi=21 -o=tun2socks.aar ./
 
+        # Upload APK artifact
+      - name: Upload files to Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: tun2socks.aar
+          path: |
+            ./tun2socks.aar
+
       - name: Upload to GitHub Release
         uses: svenstaro/upload-release-action@v2
         with:
