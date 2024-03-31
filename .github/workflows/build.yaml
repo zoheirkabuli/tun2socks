@@ -1,11 +1,9 @@
 name: Build
 
 on:
-  workflow_dispatch:
-    inputs:
-      release_tag:
-        required: true
-        type: string
+  push:
+    branches:
+      - "main"
 jobs:
   build:
     runs-on: ubuntu-latest
