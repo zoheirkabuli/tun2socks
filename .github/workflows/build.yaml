@@ -3,8 +3,7 @@ name: Build
 on:
   push:
     branches: ["main"]
-  release:
-    types: ["published"]
+
 jobs:
   build:
     permissions:
@@ -53,13 +52,3 @@ jobs:
           name: tun2socks.aar
           path: |
             ./tun2socks.aar
-
-      - name: Upload to GitHub Release
-        uses: svenstaro/upload-release-action@v2
-        if: github.event_name == 'release'
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ./tun2socks.aar
-          asset_name: tun2socks.aar
-          tag: ${{ github.ref }}
-          overwrite: true
